@@ -55,7 +55,30 @@ You don't need the math to build production AI systems, seriously I am horrible 
 
 ---
 
-### 03 — LangChain & LCEL
+### 03 — Prompt Engineering
+ 
+P.S We use chatgpt to write prompt and the claude to tune it lol. Bad prompt is the reason if you ask model for chakka it will give manga. But jokes aside, this is the section most people skip, and it shows in their output. It doesn't matter how well your chain is structured if you can't reliably get the model to do what you want. Prompt engineering is the interface between your intent and the model's behaviour — and in agentic systems, where LLMs are writing tool calls and routing decisions, a badly written prompt compounds across every step. 
+ 
+**What to learn:**
+- [ ] Zero-shot vs few-shot prompting — when each works and why
+- [ ] System prompt design — role, context, constraints, output format
+- [ ] Chain-of-thought prompting — getting models to reason before answering
+- [ ] Output formatting — structured outputs, JSON mode, XML tags
+- [ ] Prompt chaining — breaking complex tasks into sequential prompts
+- [ ] Common failure modes — hallucination, sycophancy, instruction drift
+| Type | Resource |
+|------|----------|
+| 📄 Docs | [Anthropic Prompt Engineering Guide](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) |
+| 🎓 Course | [ChatGPT Prompt Engineering for Developers — DeepLearning.AI](https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/) |
+| 📄 Docs | [OpenAI Prompt Engineering Guide](https://platform.openai.com/docs/guides/prompt-engineering) |
+ 
+> **Why both provider guides?** Anthropic and OpenAI have meaningfully different model behaviours. Reading both gives you transferable principles rather than model-specific tricks.
+ 
+> **Milestone:** Before moving to LangChain, write prompts that reliably produce structured JSON output, handle edge cases gracefully, and don't hallucinate on out-of-scope questions. If you can't do this with raw API calls, you'll struggle to debug it inside a chain.
+ 
+---
+
+### 04 — LangChain & LCEL
 
 Understand what LangChain is solving for before you write a single line of it. Then learn LCEL (LangChain Expression Language) — the declarative way to compose chains. Good free resources are sparse here; the two below are the best available.
 
@@ -69,7 +92,7 @@ Understand what LangChain is solving for before you write a single line of it. T
 
 ---
 
-### 04 — Retrieval Augmented Generation (RAG)
+### 05 — Retrieval Augmented Generation (RAG)
 
 This is the most critical module. Before building agents, you need to understand how to efficiently feed data to an LLM — context limits, chunking strategies, embeddings, vector retrieval, and reranking. Most production AI projects are RAG projects with a thin agent layer on top.
 
@@ -87,7 +110,7 @@ This is the most critical module. Before building agents, you need to understand
 
 ---
 
-### 05 — Agentic AI with LangGraph
+### 06 — Agentic AI with LangGraph
 
 This is what separates an LLM wrapper from an actual agent. Learn what makes agentic AI different from a basic API call, then go deep on LangGraph — the best framework for building stateful, controllable agents.
 
@@ -115,9 +138,9 @@ The point of no return, there are no courses — only problems. The resources he
 
 ---
 
-### 06 — Beyond Tutorials & Experience Territory
+### 07 — Beyond Tutorials & Experience Territory
 
-#### MOD-06 — Multi-Agent Systems
+#### MOD-07 — Multi-Agent Systems
 
 Orchestrator/worker patterns, agent handoffs, conflict resolution, A2A vs MCP, distributed coordination. There's no single course — read the LangGraph multi-agent docs, study production architectures, and build something non-trivial.
 
@@ -127,7 +150,7 @@ Orchestrator/worker patterns, agent handoffs, conflict resolution, A2A vs MCP, d
 
 ---
 
-#### MOD-07 — Token & Rate Limit Management
+#### MOD-08 — Token & Rate Limit Management
 
 Optimising token usage, managing context budgets across long agent loops, handling provider rate limits gracefully. Learned by running agents in production and watching them fail expensively.
 
@@ -141,7 +164,7 @@ Optimising token usage, managing context budgets across long agent loops, handli
 
 ---
 
-#### MOD-08 — Security
+#### MOD-09 — Security
 
 The attack surface of agentic systems is qualitatively different from traditional software. Prompt injection, tool hijacking, confused deputy, agent hijacking — these aren't theoretical in production systems with real tools and real data.
 
@@ -151,7 +174,7 @@ The attack surface of agentic systems is qualitatively different from traditiona
 
 ---
 
-#### MOD-09 — Evaluation
+#### MOD-10 — Evaluation
 
 You can't improve what you don't measure. RAG evaluation and agent evaluation are distinct problems requiring different frameworks and metrics.
 
